@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Riverbend Bike Co. – Bike Repair and Rentals in Fort Collins</title>
+<meta name="description" content="Riverbend Bike Co. is a neighborhood bike repair, tune-up and rental shop. This page is an accessibility test harness for a third-party chat widget.">
+<style>
+  :root {
+    --text: #1a1a1a;
+    --muted: #4a4a4a;
+    --bg: #ffffff;
+    --surface: #f4f1ea;
+    --brand: #1b4332;
+    --brand-text: #ffffff;
+    --link: #0a4f9e;
+    --link-on-dark: #ffffff;
+    --border: #6b6b6b;
+    --error: #a4161a;
+    --success: #1b5e20;
+    --focus: #0b0c0c;
+    --focus-halo: #ffdd00;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: auto; }
+  body {
+    margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--bg);
+  }
+  img { max-width: 100%; height: auto; }
+  a { color: var(--link); text-decoration: underline; text-underline-offset: 0.15em; }
+  a:hover { text-decoration-thickness: 0.15em; }
+
+  /* Visible focus indicator for every interactive element:
+     dark 3px outline plus a yellow halo so it is visible on light and dark backgrounds. */
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible,
+  [tabindex]:focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 6px var(--focus-halo);
+  }
+
+  .wrap { max-width: 68rem; margin: 0 auto; padding: 0 1rem; }
+
+  /* Skip link: first focusable element, visible when focused */
+  .skip-link {
+    position: absolute;
+    left: 0.5rem;
+    top: -10rem;
+    z-index: 100;
+    padding: 0.75rem 1rem;
+    background: var(--focus-halo);
+    color: var(--focus);
+    font-weight: 700;
+    text-decoration: underline;
+  }
+  .skip-link:focus { top: 0.5rem; }
+
+  /* Header and navigation */
+  header.site-header { background: var(--brand); color: var(--brand-text); }
+  .header-inner {
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+    gap: 0.5rem 1.5rem; padding-top: 1rem; padding-bottom: 1rem;
+  }
+  .site-name {
+    font-size: 1.375rem; font-weight: 800; letter-spacing: 0.01em;
+    color: var(--link-on-dark); text-decoration: none;
+  }
+  .site-name:hover { text-decoration: underline; }
+  .site-name span { font-weight: 400; }
+  nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.25rem 0.5rem; }
+  nav a {
+    display: inline-block; min-height: 44px; padding: 0.6rem 0.75rem;
+    color: var(--link-on-dark); font-weight: 600;
+  }
+
+  /* Hero */
+  .hero { background: var(--surface); padding: 3rem 0 2.5rem; border-bottom: 1px solid #d9d3c3; }
+  .hero h1 { font-size: clamp(1.75rem, 5vw, 2.75rem); line-height: 1.2; margin: 0 0 0.75rem; }
+  .hero p { font-size: 1.125rem; max-width: 42rem; margin: 0 0 1.5rem; }
+  .btn {
+    display: inline-block; min-height: 44px; padding: 0.65rem 1.25rem;
+    border: 2px solid var(--brand); border-radius: 0.375rem;
+    background: var(--brand); color: var(--brand-text);
+    font: inherit; font-weight: 700; text-decoration: none; cursor: pointer;
+  }
+  .btn:hover { background: #10291f; border-color: #10291f; }
+  .btn-secondary { background: var(--bg); color: var(--brand); }
+  .btn-secondary:hover { background: #e8efe9; color: var(--brand); }
+  .btn-row { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+
+  /* Sections */
+  main section { padding: 2.5rem 0; border-bottom: 1px solid #e2ddd0; }
+  main section:last-of-type { border-bottom: 0; }
+  h2 { font-size: 1.625rem; line-height: 1.25; margin: 0 0 1rem; }
+  h3 { font-size: 1.2rem; margin: 0 0 0.5rem; }
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1rem; list-style: none; padding: 0; margin: 0; }
+  .card { border: 1px solid var(--border); border-radius: 0.5rem; padding: 1.25rem; background: var(--bg); }
+  .card p { margin: 0 0 0.5rem; }
+  .price { font-weight: 700; color: var(--brand); }
+  table { border-collapse: collapse; width: 100%; max-width: 32rem; }
+  th, td { text-align: left; padding: 0.5rem 0.75rem; border-bottom: 1px solid #cfc8b8; }
+  th[scope="row"] { font-weight: 600; }
+  blockquote { margin: 0; padding: 1rem 1.25rem; border-left: 4px solid var(--brand); background: var(--surface); }
+  blockquote p { margin: 0 0 0.5rem; }
+  .section-end { text-align: right; margin: 1.5rem 0 0; }
+
+  /* Form */
+  form { max-width: 36rem; }
+  .field { margin-bottom: 1.25rem; }
+  label { display: block; font-weight: 700; margin-bottom: 0.25rem; }
+  .hint { display: block; color: var(--muted); font-size: 0.95rem; margin-bottom: 0.35rem; }
+  input[type="text"], input[type="email"], textarea {
+    width: 100%; min-height: 44px; padding: 0.6rem 0.75rem;
+    font: inherit; color: var(--text); background: var(--bg);
+    border: 2px solid var(--border); border-radius: 0.375rem;
+  }
+  textarea { min-height: 8rem; resize: vertical; }
+  [aria-invalid="true"] { border-color: var(--error); }
+  .error { display: block; color: var(--error); font-weight: 600; margin-top: 0.3rem; }
+  .error:empty { display: none; }
+  .form-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 0.75rem; }
+  .status {
+    margin-top: 1rem; padding: 0; font-weight: 600; color: var(--success);
+  }
+  .status:not(:empty) { padding: 0.75rem 1rem; border: 2px solid var(--success); border-radius: 0.375rem; background: #eef6ee; }
+
+  /* Bottom-right controls (for WCAG 2.4.11 Focus Not Obscured testing).
+     These sit in normal document flow at the very end of the page, right-aligned,
+     so that when the page is scrolled to the bottom they occupy the bottom-right
+     corner of the viewport, exactly where chat launchers usually float. */
+  .corner-controls { background: var(--surface); border-top: 1px solid #d9d3c3; padding: 1.25rem 0; }
+  .corner-controls .wrap { display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: center; gap: 0.75rem; }
+  .corner-controls h2 { font-size: 1rem; margin: 0 auto 0 0; }
+
+  /* Footer */
+  footer.site-footer { background: var(--brand); color: var(--brand-text); padding: 2rem 0 1rem; }
+  footer.site-footer a { color: var(--link-on-dark); display: inline-block; min-height: 24px; padding: 0.2rem 0; }
+  .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: 1.5rem; }
+  .footer-grid h2 { font-size: 1.05rem; margin-bottom: 0.5rem; }
+  .footer-grid ul { list-style: none; margin: 0; padding: 0; }
+  .footer-grid li { margin-bottom: 0.35rem; }
+  .footer-bottom { margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid #5f7d6f; font-size: 0.95rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem 1rem; }
+  .footer-bottom-links { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 0.25rem 1rem; list-style: none; margin: 0; padding: 0; }
+
+  .visually-hidden {
+    position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { transition: none !important; animation: none !important; }
+  }
+  @media (forced-colors: active) {
+    a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, [tabindex]:focus-visible {
+      outline: 3px solid CanvasText; box-shadow: none;
+    }
+    .btn { border: 2px solid ButtonText; }
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="site-name" href="#main">Riverbend <span>Bike Co.</span></a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#rentals">Rentals</a></li>
+        <li><a href="#about">About us</a></li>
+        <li><a href="#hours">Hours and location</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+  <div class="hero">
+    <div class="wrap">
+      <h1>Friendly bike repair and rentals, right by the river trail</h1>
+      <p>Riverbend Bike Co. has kept Fort Collins riding since 2009. Bring in your commuter, mountain bike or kids&rsquo; bike for a same-week tune-up, or rent one of ours for the afternoon.</p>
+      <div class="btn-row">
+        <a class="btn" href="#contact">Book a tune-up</a>
+        <a class="btn btn-secondary" href="#rentals">See rental prices</a>
+      </div>
+    </div>
+  </div>
+
+  <section id="services" aria-labelledby="services-heading">
+    <div class="wrap">
+      <h2 id="services-heading">Repair services</h2>
+      <p>Every service starts with a free safety check. We&rsquo;ll call you with a quote before doing any work beyond what you asked for.</p>
+      <ul class="cards">
+        <li class="card">
+          <h3>Basic tune-up</h3>
+          <p>Brake and shifting adjustment, tire inflation, chain cleaning and lube, bolt check.</p>
+          <p class="price">$75</p>
+        </li>
+        <li class="card">
+          <h3>Full overhaul</h3>
+          <p>Complete teardown, deep clean, new cables and housing, wheel truing and bearing service.</p>
+          <p class="price">$220</p>
+        </li>
+        <li class="card">
+          <h3>Flat fix while you wait</h3>
+          <p>Tube replacement or tubeless repair, usually done in under 20 minutes.</p>
+          <p class="price">$20 plus parts</p>
+        </li>
+      </ul>
+      <p class="section-end"><a href="#main">Back to top</a></p>
+    </div>
+  </section>
+
+  <section id="rentals" aria-labelledby="rentals-heading">
+    <div class="wrap">
+      <h2 id="rentals-heading">Bike rentals</h2>
+      <p>All rentals include a helmet, lock and trail map. Adaptive trikes and tandem bikes are available with 24 hours&rsquo; notice.</p>
+      <table>
+        <caption class="visually-hidden">Rental prices by bike type</caption>
+        <thead>
+          <tr><th scope="col">Bike type</th><th scope="col">Half day</th><th scope="col">Full day</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">Cruiser</th><td>$25</td><td>$40</td></tr>
+          <tr><th scope="row">Hybrid commuter</th><td>$30</td><td>$50</td></tr>
+          <tr><th scope="row">E-bike</th><td>$55</td><td>$85</td></tr>
+          <tr><th scope="row">Adaptive trike</th><td>$30</td><td>$50</td></tr>
+        </tbody>
+      </table>
+      <p class="section-end"><a href="#main">Back to top</a></p>
+    </div>
+  </section>
+
+  <section id="about" aria-labelledby="about-heading">
+    <div class="wrap">
+      <h2 id="about-heading">About us</h2>
+      <p>We&rsquo;re a team of five mechanics who love getting people on bikes. We sponsor the Saturday community ride, run free flat-repair clinics every month, and recycle old parts through a local youth program.</p>
+      <blockquote>
+        <p>&ldquo;Our goal is simple: every bike that leaves the shop should be safer and more fun to ride than when it came in.&rdquo;</p>
+        <p>&mdash; Placeholder quote for test content</p>
+      </blockquote>
+      <p class="section-end"><a href="#main">Back to top</a></p>
+    </div>
+  </section>
+
+  <section id="hours" aria-labelledby="hours-heading">
+    <div class="wrap">
+      <h2 id="hours-heading">Hours and location</h2>
+      <p>123 Example Street, Fort Collins, CO (placeholder address). Street parking and bike racks out front; the entrance is step-free.</p>
+      <table>
+        <caption class="visually-hidden">Opening hours</caption>
+        <tbody>
+          <tr><th scope="row">Monday to Friday</th><td>10 a.m. to 7 p.m.</td></tr>
+          <tr><th scope="row">Saturday</th><td>9 a.m. to 5 p.m.</td></tr>
+          <tr><th scope="row">Sunday</th><td>Closed</td></tr>
+        </tbody>
+      </table>
+      <p class="section-end"><a href="#main">Back to top</a></p>
+    </div>
+  </section>
+
+  <section id="contact" aria-labelledby="contact-heading">
+    <div class="wrap">
+      <h2 id="contact-heading">Contact us</h2>
+      <p>Send us a question or request a tune-up appointment. All fields are required.</p>
+      <p><strong>Note:</strong> this is a test form. Nothing is sent anywhere.</p>
+      <form id="contact-form" novalidate>
+        <div class="field">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" autocomplete="name" required aria-describedby="name-error">
+          <span class="error" id="name-error"></span>
+        </div>
+        <div class="field">
+          <label for="email">Email address</label>
+          <span class="hint" id="email-hint">For example, name@example.com</span>
+          <input type="email" id="email" name="email" autocomplete="email" required aria-describedby="email-hint email-error">
+          <span class="error" id="email-error"></span>
+        </div>
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required aria-describedby="message-error"></textarea>
+          <span class="error" id="message-error"></span>
+        </div>
+        <div class="form-actions">
+          <button type="reset" class="btn btn-secondary">Clear form</button>
+          <button type="submit" class="btn">Send message</button>
+        </div>
+      </form>
+      <!-- Page's own polite live region, used to check for conflicts with the chat widget's announcements -->
+      <div id="form-status" class="status" role="status" aria-live="polite" aria-atomic="true"></div>
+    </div>
+  </section>
+</main>
+
+<!-- Bottom-right focus targets for WCAG 2.4.11 Focus Not Obscured (Minimum) testing -->
+<aside class="corner-controls" aria-labelledby="quick-actions-heading">
+  <div class="wrap">
+    <h2 id="quick-actions-heading">Quick actions</h2>
+    <a href="tel:+15555550123">Call the shop</a>
+    <a href="#hours">Get directions</a>
+    <button type="button" class="btn btn-secondary" id="newsletter-btn">Join our newsletter</button>
+    <a class="btn" href="#main">Back to top</a>
+  </div>
+</aside>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h2>Riverbend Bike Co.</h2>
+        <p>Neighborhood bike repair and rentals. This is a fictional business used for accessibility testing.</p>
+      </div>
+      <div>
+        <h2>Shop</h2>
+        <ul>
+          <li><a href="#services">Repair services</a></li>
+          <li><a href="#rentals">Rentals</a></li>
+          <li><a href="#contact">Book a tune-up</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Company</h2>
+        <ul>
+          <li><a href="#about">About us</a></li>
+          <li><a href="#hours">Hours and location</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Riverbend Bike Co. (test site)</p>
+      <ul class="footer-bottom-links" aria-label="Legal">
+        <li><a href="#main">Privacy</a></li>
+        <li><a href="#main">Accessibility statement</a></li>
+        <li><a href="#main">Terms of use</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var form = document.getElementById('contact-form');
+    var status = document.getElementById('form-status');
+    var fields = [
+      { el: document.getElementById('name'), err: document.getElementById('name-error'), msg: 'Enter your name.' },
+      { el: document.getElementById('email'), err: document.getElementById('email-error'), msg: 'Enter an email address, like name@example.com.' },
+      { el: document.getElementById('message'), err: document.getElementById('message-error'), msg: 'Enter a message.' }
+    ];
+    var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var firstInvalid = null;
+      fields.forEach(function (f) {
+        var value = f.el.value.trim();
+        var invalid = value === '' || (f.el.type === 'email' && !emailPattern.test(value));
+        f.el.setAttribute('aria-invalid', invalid ? 'true' : 'false');
+        f.err.textContent = invalid ? f.msg : '';
+        if (invalid && !firstInvalid) { firstInvalid = f.el; }
+      });
+      if (firstInvalid) {
+        status.textContent = '';
+        firstInvalid.focus();
+        return;
+      }
+      var name = fields[0].el.value.trim();
+      form.reset();
+      fields.forEach(function (f) { f.el.removeAttribute('aria-invalid'); });
+      status.textContent = '';
+      window.setTimeout(function () {
+        status.textContent = 'Thanks, ' + name + '. Your message was received. (Test form: nothing was actually sent.)';
+      }, 100);
+    });
+
+    form.addEventListener('reset', function () {
+      fields.forEach(function (f) { f.el.removeAttribute('aria-invalid'); f.err.textContent = ''; });
+      status.textContent = '';
+    });
+
+    document.getElementById('newsletter-btn').addEventListener('click', function () {
+      status.textContent = '';
+      window.setTimeout(function () {
+        status.textContent = 'Newsletter sign-up is not available on this test site.';
+      }, 100);
+    });
+  })();
+</script>
+
+<!-- BEGIN Freshchat / Freshdesk Messaging web widget snippet (copied unmodified from Freshchat Admin > Web Chat > Web Widget > Embed Code) -->
+<script
+src='//fw-cdn.com/17383604/7585218.js'
+chat='true'>
+</script>
+<!-- END Freshchat / Freshdesk Messaging web widget snippet -->
+</body>
+</html>
